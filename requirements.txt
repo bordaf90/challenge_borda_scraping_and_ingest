@@ -1,0 +1,4 @@
+selenium
+google-cloud-bigquery
+pandas
+webdriver-manager
