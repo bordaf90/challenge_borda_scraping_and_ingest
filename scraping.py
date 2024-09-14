@@ -11,7 +11,7 @@ import pandas as pd
 from tempfile import NamedTemporaryFile
 
 # Set the environment variable to authenticate with Google Cloud
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = '/app/challenge-borda-80fb1feb52cb.json'
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = '/run/secrets/google_credentials'
 
 # Create a BigQuery client
 client = bigquery.Client()

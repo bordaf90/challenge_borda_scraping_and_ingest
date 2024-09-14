@@ -15,16 +15,16 @@ RUN apt-get update && \
 # Set the working directory
 WORKDIR /app
 
-# Copy the necessary files to the container
+# Copy necessary files to the container
 COPY scraping.py /app/
-COPY challenge-borda-80fb1feb52cb.json /app/
 COPY requirements.txt /app/
 
-# Install the packages from requirements.txt
+# Install packages from requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Set the required environment variables
-ENV GOOGLE_APPLICATION_CREDENTIALS="/app/challenge-borda-80fb1feb52cb.json"
+# The secret file will be mounted at runtime to /run/secrets
+# Set the environment variable for the application to use the secret
+ENV GOOGLE_APPLICATION_CREDENTIALS="/run/secrets/google_credentials"
 
-# Execute the script
+# Run the script
 CMD ["python", "scraping.py"]

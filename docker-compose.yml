@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+  scraping-app:
+    build: .
+    container_name: challenge_container
+    secrets:
+      - google_credentials
+    environment:
+      - GOOGLE_APPLICATION_CREDENTIALS=/run/secrets/google_credentials
+    volumes:
+      - ./scraping.py:/app/scraping.py
+      - ./requirements.txt:/app/requirements.txt
+    command: python /app/scraping.py
+
+secrets:
+  google_credentials:
+    file: ./challenge-borda-80fb1feb52cb.json
