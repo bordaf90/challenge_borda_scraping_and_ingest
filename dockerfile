@@ -13,12 +13,12 @@ RUN apt-get update && \
     apt-get clean
 
 # Set the working directory
-WORKDIR /proyecto
+WORKDIR /app
 
 # Copy the necessary files to the container
-COPY scraping.py /proyecto/
-COPY challenge-borda-80fb1feb52cb.json /proyecto/
-COPY requirements.txt /proyecto/
+COPY scraping.py /app/
+COPY challenge-borda-80fb1feb52cb.json /app/
+COPY requirements.txt /app/
 
 # Install the packages from requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
